@@ -1,5 +1,6 @@
 {
     "require": {
-        "tburry/pquery": "^1.1"
+        "tburry/pquery": "^1.1",
+        "theiconic/php-ga-measurement-protocol": "^2.7"
     }
 }
