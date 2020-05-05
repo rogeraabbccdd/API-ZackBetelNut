@@ -1,0 +1,5 @@
+{
+    "require": {
+        "tburry/pquery": "^1.1"
+    }
+}
