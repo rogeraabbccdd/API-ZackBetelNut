@@ -30,16 +30,9 @@
     $sth->execute();
     $imgurl = $sth->fetchAll()[0][0];
 
-    $curl = curl_init();
-    curl_setopt($curl, CURLOPT_URL, $imgurl);
-    curl_setopt($curl, CURLOPT_HEADER, false);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-    curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.1 Safari/537.11');
-    $res = curl_exec($curl);
-    $rescode = curl_getinfo($curl, CURLINFO_HTTP_CODE); 
-    curl_close($curl) ;
-    echo $res;
+    $img = file_get_contents($imgurl);
+    
+    echo $img;
   }
   elseif(isset($_GET["rand"])) {
     header('Content-Type: application/json; charset=utf-8');
