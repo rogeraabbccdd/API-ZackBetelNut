@@ -30,3 +30,4 @@
 - `image`: 圖片網址
 - `description`: 圖片說明
 - `link`: 貼文網址
+- `timestamp`: UNIX TIMESTAMP
