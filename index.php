@@ -34,7 +34,8 @@
       "post_id" => $row['post_id'],
       "image" => $row['image'],
       "description" => $row['description'],
-      "link" => $row['link']
+      "link" => $row['link'],
+      "timestamp " => $row['timestamp']
     ));
   }
   echo json_encode($data);

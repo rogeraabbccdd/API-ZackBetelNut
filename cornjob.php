@@ -184,6 +184,8 @@
                   $id = explode("&amp;",$id)[2];
                   $id = substr($id, 3);
 
+                  $data[$id]['time'] = $box->query('abbr')[0]->attributes['data-utime'];
+
                   if(count($box->query('.hasCaption')) > 0) {
                     $text = $box->query('.hasCaption')[0]->getPlainText();
                     $data[$id]['text'] = $text;
@@ -228,9 +230,10 @@
           ":post_id" => $key,
           ":image" => $value["img"],
           ":description" => $value["text"],
-          ":link" => $value["post"]
+          ":link" => $value["post"],
+          ":time" => $value["time"], 
         );
-        $sql = "INSERT INTO {$db_table} VALUES (null, :post_id, :image, :description, :link)";
+        $sql = "INSERT INTO {$db_table} VALUES (null, :post_id, :image, :description, :link, :time)";
         $sth = $pdo->prepare($sql);
         $sth->execute($input);
       }
