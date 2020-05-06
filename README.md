@@ -2,7 +2,7 @@
 擷取 [財哥專業檳榔攤](https://www.facebook.com/caigezhuanyebinlangtan) 的 [動態時報相片](https://www.facebook.com/caigezhuanyebinlangtan/media_set/?set=a.1620287888210449) 內語錄的圖片、說明以及貼文連結、ID  並存入 MySQL 資料庫  
 **這個 API 並不需要 Facebook 開發人員帳號及申請應用程式驗證**  
 
-![screenshot](screenshot.png)
+![screenshot](cover.jpg)
 
 ## 線上 API
 ### 所有資料
