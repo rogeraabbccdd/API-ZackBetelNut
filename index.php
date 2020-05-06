@@ -14,7 +14,6 @@
       ->setProtocolVersion('1')
       ->setTrackingId($gaid)
       ->setClientId($_SERVER['REQUEST_TIME'])
-      ->setDocumentPath('/index.php')
       ->setIpOverride($_SERVER['REMOTE_ADDR']);
 
   $analytics->sendPageview();
@@ -23,6 +22,8 @@
   $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
   if(isset($_GET["randimg"])) {
+    $analytics->setDocumentPath('/index.php?randimg');
+
     header("Content-Type: image/jpeg");
 
     $sql = "SELECT image FROM {$db_table} ORDER BY RAND() LIMIT 1";
@@ -35,6 +36,8 @@
     echo $img;
   }
   elseif(isset($_GET["rand"])) {
+    $analytics->setDocumentPath('/index.php?rand');
+    
     header('Content-Type: application/json; charset=utf-8');
 
     $sql = "SELECT * FROM {$db_table} ORDER BY RAND() LIMIT 1";
@@ -52,6 +55,8 @@
     echo json_encode($data);
   }
   else {
+    $analytics->setDocumentPath('/index.php');
+
     header('Content-Type: application/json; charset=utf-8');
 
     $sql = "SELECT * FROM {$db_table}";
@@ -72,4 +77,6 @@
 
     echo json_encode($data);
   }
+
+  $analytics->sendPageview();
 ?>
