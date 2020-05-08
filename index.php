@@ -59,7 +59,7 @@
 
     header('Content-Type: application/json; charset=utf-8');
 
-    $sql = "SELECT * FROM {$db_table}";
+    $sql = "SELECT * FROM {$db_table} ORDER BY timestamp DESC";
     $sth = $pdo->prepare($sql);
     $sth->execute();
     $result = $sth->fetchAll();
