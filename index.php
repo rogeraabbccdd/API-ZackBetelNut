@@ -50,7 +50,7 @@
       "image" => $row['image'],
       "description" => $row['description'],
       "link" => $row['link'],
-      "timestamp " => $row['timestamp']
+      "timestamp" => $row['timestamp']
     );
     echo json_encode($data);
   }
