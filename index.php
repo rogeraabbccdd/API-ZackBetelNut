@@ -23,17 +23,13 @@
 
   if(isset($_GET["randimg"])) {
     $analytics->setDocumentPath('/index.php?randimg');
-
-    header("Content-Type: image/jpeg");
-
+    
     $sql = "SELECT image FROM {$db_table} ORDER BY RAND() LIMIT 1";
     $sth = $pdo->prepare($sql);
     $sth->execute();
     $imgurl = $sth->fetchAll()[0][0];
-
-    $img = file_get_contents($imgurl);
     
-    echo $img;
+    header("location:".$imgurl);
   }
   elseif(isset($_GET["rand"])) {
     $analytics->setDocumentPath('/index.php?rand');
