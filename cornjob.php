@@ -129,6 +129,7 @@
       "cookie: {$cookie}"
     );
 
+    // for($i=0;$i<count($ids);$i+=5) {
     for($i=0;$i<count($ids);$i+=5) {
       $query = http_build_query(array (
         "ajaxpipe" => 1,
