@@ -236,6 +236,18 @@
         $sql = "INSERT INTO {$db_table} VALUES (null, :post_id, :image, :description, :link, :time)";
         $sth = $pdo->prepare($sql);
         $sth->execute($input);
+      } 
+      else {
+        $input = array(
+          ":post_id" => $key,
+          ":image" => $value["img"],
+          ":description" => $value["text"],
+          ":link" => $value["post"],
+          ":time" => $value["time"], 
+        );
+        $sql = "UPDATE {$db_table} SET image = :image, description = :description, link = :link, timestamp = :time WHERE post_id = :post_id";
+        $sth = $pdo->prepare($sql);
+        $sth->execute($input);
       }
     }
   }
